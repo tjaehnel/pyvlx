@@ -14,7 +14,7 @@ class OpeningDevice(Node):
     """Meta class for opening device with one main parameter for position."""
 
     def __init__(
-            self, pyvlx, node_id, name, serial_number, position_parameter=Parameter()
+            self, pyvlx, node_id, name, serial_number, position_parameter=Parameter(), target_position_parameter=Parameter()
     ):
         """Initialize opening device.
 
@@ -31,6 +31,7 @@ class OpeningDevice(Node):
             pyvlx=pyvlx, node_id=node_id, name=name, serial_number=serial_number
         )
         self.position = Position(parameter=position_parameter)
+        self.target_position = Position(parameter=target_position_parameter)
         self.limitation_min = IgnorePosition()
         self.limitation_max = IgnorePosition()
         self.limitation_time = 255
